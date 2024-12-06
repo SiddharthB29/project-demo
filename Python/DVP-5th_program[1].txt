@@ -1,0 +1,73 @@
+5a) Write a Python program to Demonstrate how to Draw a Histogram Plot using Matplotlib.
+
+Python Code
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Generate random student scores (example data)
+np.random.seed(10)
+student_scores = np.random.normal(loc=70, scale=15, size=100)
+
+# Create a histogram plot
+plt.hist(student_scores, bins=20, color='skyblue', edgecolor='black')
+
+# Add labels and title
+plt.xlabel('Student Scores')
+plt.ylabel('Frequency')
+plt.title('Distribution of Student Scores')
+
+# Display the plot
+plt.show()
+
+
+
+Explanation:
+matplotlib library and numpy to generate a histogram plot illustrating the distribution of student scores.
+Random Data Generation:
+The script generates example data representing student scores using a normal distribution (np.random.normal).
+Histogram Plot:
+It creates a histogram plot using the hist function, where student_scores is the data array, bins determines the number of bins, and color sets the fill color while edgecolor sets the color of bin edges.
+Labels and Title:
+The script adds labels to the x-axis (Student Scores) and y-axis (Frequency).
+A title, ‘Distribution of Student Scores,’ is included to provide context to the plot.
+Display:
+The show function is called to display the generated histogram plot.
+
+
+5b) Write a Python program to Demonstrate how to Draw a Pie Chart using Matplotlib.
+
+import matplotlib.pyplot as plt
+
+#Number of FIFA World Cup wins for different countries
+countries = ['Brazil', 'Germany', 'Italy', 'Argentina', 'Uruguay', 'France', 'England', 'Spain']
+wins = [5, 4, 4, 3, 2, 2, 1, 1]  # Replace with actual data
+
+# Colors for each country
+colors = ['yellow', 'magenta', 'green', 'blue', 'lightblue', 'blue', 'red', 'cyan']
+
+plt.pie(wins, labels=countries, autopct='%1.1f%%', colors=colors, startangle=90, explode=[0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2], shadow=True)
+
+# Add title
+plt.title('FIFA World Cup Wins by Country')
+
+# Display the plot
+plt.axis('equal')  # Equal aspect ratio ensures that the pie chart is circular.
+plt.show()
+
+
+
+Explanation:
+Data Representation:
+
+The script uses hypothetical data representing the number of FIFA World Cup wins for different countries.
+Pie Chart Creation:
+It creates a pie chart using the pie function, where wins is the data array, labels are country names,
+and autopct formats the percentage display.
+Colors and Styling:
+Different colors are assigned to each country using the colors parameter.
+The pie chart is enhanced with features such as a start angle, explode effect, and shadow.
+Title:
+The script adds a title to the pie chart, enhancing the overall context.
+Display:
+The show function is called to display the generated pie chart.

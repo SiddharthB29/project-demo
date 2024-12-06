@@ -1,0 +1,90 @@
+LAB-2
+2 a) Defined as a function F as Fn = Fn-1 + Fn-2. Write a Python program which accepts a value for N (where N >0) as input and pass this value to the function. Display suitable error message if the condition for input value is not followed.
+def fn(n):
+    if n <= 2:
+        return n-1
+    else:
+        return fn(n-1) + fn(n-2)
+try:
+    num = int(input("Enter a number : "))
+    if num > 0:
+        print("fn(", num, ") = ",fn(num) )
+    else:
+        print("input should be greater than 0")
+except ValueError:
+    print ("try with numeric value")
+OUTPUT:
+Enter a number: 3
+fn(3) = 1
+Enter a number: 5
+fn(5) = 3
+Enter a number: 0
+input should be greater than 0
+2b) Develop a python to check or convert binary number to decimal number and octal to hexadecimal using functions.
+def binary_to_decimal(binary_num):
+    decimal_num = int(binary_num, 2)
+    return decimal_num
+def octal_to_hexadecimal(octal_num):
+    decimal_num = int(octal_num, 8)
+    hexadecimal_num = hex(decimal_num).upper()
+    return hexadecimal_num
+# Main program
+binary_num = "1010"
+octal_num ="52"
+
+decimal_result = binary_to_decimal(binary_num)
+hexadecimal_result = octal_to_hexadecimal(octal_num)
+print(f"Binary {binary_num} is equivalent to Decimal {decimal_result}")
+print(f"Octal {octal_num} is equivalent to Hexadecimal {hexadecimal_result}")
+
+OUTPUT:
+ 
+Binary 1010 is equivalent to Decimal 10 Octal 52 is equivalent to Hexadecimal 0X2A
+
+
+OR (another model)
+2b) Develop a python to check or convert binary number to decimal number and octal to hexadecimal using functions.
+def bin2Dec(val):
+    rev=val[::-1]
+    dec = 0
+    i = 0
+    for dig in rev:
+        dec += int(dig) * 2**i
+        i += 1
+    
+    return dec
+
+def oct2Hex(val):
+    rev=val[::-1]
+    dec = 0
+    i = 0
+    for dig in rev:
+        dec += int(dig) * 8**i
+        i += 1
+    list=[]
+    while dec != 0:
+        list.append(dec%16)
+        dec = dec // 16
+        
+    nl=[]
+    for elem in list[::-1]:
+        if elem <= 9:
+            nl.append(str(elem))
+        else:
+            nl.append(chr(ord('A') + (elem -10)))
+    hex = "".join(nl)
+    
+    return hex
+
+num1 = input("Enter a binary number : ")    
+print(bin2Dec(num1))
+num2 = input("Enter a octal number : ")
+print(oct2Hex(num2))
+
+OUTPUT:
+
+Enter a binary number: 
+1010 
+10 Enter a octal number: 
+48 
+28
